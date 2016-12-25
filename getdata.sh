@@ -1,116 +1,87 @@
 #!/bin/bash
 
 
-# x=2
-# echo "x=$x"
-# x=x * 2
-# echo "x=$x"
-# x=2
-# x=$(($x*2)) # this works only
-# echo "x=$x"
-# x=2
-# x=$(($x*2)) # this works only
-# echo "x=$x"
-# x=2
-# echo "x=$x"
-# x=2
-# $x=$x * 2
-# echo "x=$x"
+echo "gcc multithread.c -o server -lpthread -lm"
+gcc multithread.c -o server -lpthread -lm
 
-
-# file_name="./output/output_B_BUFFER_SIZE.txt"
-# echo "1 output file path: $file_name"
-# file_name="./output/output_B_BUFFER_SIZE_222222.txt"
-# echo "2 output file path: $file_name"
-# file_name="./output/output_B_BUFFER_SIZE_33.txt"
-# echo "3 output file path: $file_name"
-# file_name="./output/output_B_BUFFER_SIZE_44444444444444.txt"
-# echo "4 output file path: $file_name"
+file_name="./output/output_B_BUFFER_SIZE.txt"
+echo "output file path $file_name"
+x=1
+i=0
+for ((i=0;i<6;i++))
+do
+    gcc multithread.c -o server -lpthread -lm
+	echo "i= $i ...............changing B_BUFFER_SIZE = $x......................"
+	echo "i= $i ...............changing B_BUFFER_SIZE = $x......................" &>> $file_name
+    echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
+    echo "./server 200 $x 200 20 50 50 50 50 50"
+          ./server 200 $x 200 20 50 50 50 50 50 &>> $file_name
+    x=$(($x*4))
+done
 
 
 
-# echo "gcc multithread.c -o server -lpthread -lm"
-# gcc multithread.c -o server -lpthread -lm
-
-# file_name="./output/output_B_BUFFER_SIZE.txt"
-# echo "output file path $file_name"
-# x=2
-# i=0
-# for ((i=0;i<6;i++))
-# do
-    # gcc multithread.c -o server -lpthread -lm
-	# echo "i= $i ...............changing B_BUFFER_SIZE = $x......................"
-	# echo "i= $i ...............changing B_BUFFER_SIZE = $x......................" &>> $file_name
-    # echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
-    # echo "./server 200 $x 200 20 50 50 50 50 50"
-          # ./server 200 $x 200 20 50 50 50 50 50 &>> $file_name
-    # x=$(($x*4))
-# done
+file_name="./output/output_P_COUNT.txt"
+echo "output file path $file_name"
+x=1
+i=0
+for ((i=0;i<6;i++))
+do
+	echo "i= $i ...............changing P_COUNT = $x......................" &>> $file_name
+	echo "i= $i ...............changing P_COUNT = $x......................"
+    echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
+    echo "./server 120 200 $x 200 50 50 50 50 50"
+          ./server 120 200 $x 200 50 50 50 50 50 &>> $file_name
+    x=$(($x*4))
+done
 
 
 
-# file_name="./output/output_P_COUNT.txt"
-# echo "output file path $file_name"
-# x=1
-# i=0
-# for ((i=0;i<6;i++))
-# do
-	# echo "i= $i ...............changing P_COUNT = $x......................" &>> $file_name
-	# echo "i= $i ...............changing P_COUNT = $x......................"
-    # echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
-    # echo "./server 120 200 $x 200 50 50 50 50 50"
-          # ./server 120 200 $x 200 50 50 50 50 50 &>> $file_name
-    # x=$(($x*4))
-# done
+file_name="./output/output_C_COUNT.txt"
+echo "output file path $file_name"
+x=1
+i=0
+for ((i=0;i<8;i++))
+do
+	echo "i= $i ...............changing C_COUNT = $x......................" &>> $file_name
+	echo "i= $i ...............changing C_COUNT = $x......................"
+    echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
+    echo "./server 200 200 200 $x 50 50 50 50 50"
+          ./server 200 200 200 $x 50 50 50 50 50 &>> $file_name
+    x=$(($x*4))
+done
 
 
 
-# file_name="./output/output_C_COUNT.txt"
-# echo "output file path $file_name"
-# x=1
-# i=0
-# for ((i=0;i<8;i++))
-# do
-	# echo "i= $i ...............changing C_COUNT = $x......................" &>> $file_name
-	# echo "i= $i ...............changing C_COUNT = $x......................"
-    # echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
-    # echo "./server 200 200 200 $x 50 50 50 50 50"
-          # ./server 200 200 200 $x 50 50 50 50 50 &>> $file_name
-    # x=$(($x*4))
-# done
+file_name="./output/output_P_t_PRODUCER_DELAY_DIST_PARAM.txt"
+echo "output file path $file_name"
+x=1
+i=0
+for ((i=0;i<6;i++))
+do
+	echo "i= $i ...............changing P_t_PRODUCER_DELAY_DIST_PARAM = $x......................" &>> $file_name
+	echo "i= $i ...............changing P_t_PRODUCER_DELAY_DIST_PARAM = $x......................"
+    echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
+    echo "./server 200 200 20 20 $x 50 50 50 50"
+          ./server 200 200 200 20 $x 50 50 50 50 &>> $file_name
+    x=$(($x*4))
+done
 
 
 
-# file_name="./output/output_P_t_PRODUCER_DELAY_DIST_PARAM.txt"
-# echo "output file path $file_name"
-# x=1
-# i=0
-# for ((i=0;i<6;i++))
-# do
-	# echo "i= $i ...............changing P_t_PRODUCER_DELAY_DIST_PARAM = $x......................" &>> $file_name
-	# echo "i= $i ...............changing P_t_PRODUCER_DELAY_DIST_PARAM = $x......................"
-    # echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
-    # echo "./server 200 200 20 20 $x 50 50 50 50"
-          # ./server 200 200 200 20 $x 50 50 50 50 &>> $file_name
-    # sleep 5
-    # x=$(($x*4))
-# done
-
-
-
-# file_name="./output/output_R_s_REQUEST_SIZE_DIST_PARAM.txt"
-# echo "output file path $file_name"
-# x=1
-# i=0
-# for ((i=0;i<6;i++))
-# do
-	# echo "i= $i ...............changing R_s_REQUEST_SIZE_DIST_PARAM = $x......................" &>> $file_name
-	# echo "i= $i ...............changing R_s_REQUEST_SIZE_DIST_PARAM = $x......................"
-    # echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
-    # echo "./server 200 200 20 20 50 $x 50 50 50"
-          # ./server 200 200 200 20 50 $x 50 50 50 &>> $file_name
-    # x=$(($x*4))
-# done
+file_name="./output/output_R_s_REQUEST_SIZE_DIST_PARAM.txt"
+echo "output file path $file_name"
+x=1
+i=0
+for ((i=0;i<6;i++))
+do
+	echo "i= $i ...............changing R_s_REQUEST_SIZE_DIST_PARAM = $x......................" &>> $file_name
+	echo "i= $i ...............changing R_s_REQUEST_SIZE_DIST_PARAM = $x......................"
+    echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
+    echo "./server 200 200 20 20 50 $x 50 50 50"
+          ./server 200 200 200 20 50 $x 50 50 50 &>> $file_name
+    x=$(($x*4))
+done
 
 
 
@@ -161,20 +132,19 @@ do
 done
 
 
-# file_name="./output/output_TOTAL_RUN_TIME.txt"
-# echo "output file path $file_name"
+file_name="./output/output_TOTAL_RUN_TIME.txt"
+echo "output file path $file_name"
 
-# x=2
-# i=0
-# for ((i=0;i<6;i++))
-# do
-	# echo "i= $i ...............changing TOTAL_RUN_TIME = $x ......................" &>> $file_name
-	# echo "i= $i ...............changing TOTAL_RUN_TIME = $x ......................"
-    # echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
-    # echo "./server $x 100 20 20 50 50 50 50 50"
-          # ./server $x 100 20 20 50 50 50 50 50 &>> $file_name
-    # sleep 5
-    # x=$(($x*4))
-# done
+x=2
+i=0
+for ((i=0;i<6;i++))
+do
+	echo "i= $i ...............changing TOTAL_RUN_TIME = $x ......................" &>> $file_name
+	echo "i= $i ...............changing TOTAL_RUN_TIME = $x ......................"
+    echo "./server T   B   P   C   Pt   Rs   Ct1   Ct2   Pi"
+    echo "./server $x 100 20 20 50 50 50 50 50"
+          ./server $x 100 20 20 50 50 50 50 50 &>> $file_name
+    x=$(($x*4))
+done
 
 
