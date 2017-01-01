@@ -318,9 +318,6 @@ void * consumer_thread_func (){
 void * performance_stats_thread_func (){
     struct timeval current_time;
     struct timeval elapsed_time;
-    int printed=0;
-    int current_sec=0;
-    int old_printed_sec=0;
     while (quit==0) {
         sleep(TIME_INTERVAL_FOR_STATUS);
         gettimeofday(&current_time,NULL);
